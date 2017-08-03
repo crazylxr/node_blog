@@ -1,0 +1,39 @@
+
+    {% extends 'layout.html' %}
+
+    {% block main %}
+    <ol class="breadcrumb">
+        <li><a href="/admin">管理首页</a></li>
+        <li><a href="/admin/user">用户列表</a></li>
+        <!--<li class="active">Data</li>-->
+    </ol>
+
+    <h3>用户列表</h3>
+    <table class="table table-hover table-striped">
+        <tr>
+            <td>ID</td>
+            <td>用户名</td>
+            <td>密码</td>
+            <td>是否是管理员</td>
+        </tr>
+
+        {% for user in users %}
+        <tr>
+            <td>{{user._id.toString()}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.password}}</td>
+            <td>
+                {% if user.isAdmin %}
+                是
+                {% else %}
+                否
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor%}
+    </table>
+
+    {% include 'page.html'%}
+
+    {% endblock%}
+

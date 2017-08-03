@@ -1,0 +1,110 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #e9e9e9;
+}
+.backimg img{
+    width: 100%;
+    height: 200px;
+}
+a{
+    text-decoration: none;
+}
+.focus{
+    border-bottom: 5px solid #ffa63d;
+}
+.colInfo{
+    color: #3fff8e;
+}
+.menu{
+    background: #fff;
+    display: flex;
+    justify-content: center;
+}
+.menu a{
+    margin: 10px;
+}
+
+.clear{
+    display: flex;
+    justify-content: center;
+}
+
+.mainLeft{
+    width:42%;
+    margin-right: 20px;
+    min-width: 700px;
+}
+.mainRight{
+    width: 21%;
+    min-width: 350px;
+}
+.listBox{
+    background: #fff;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+}
+
+.listBox h1{
+    display: flex;
+    justify-content: center;
+}
+.listBox .colDefault{
+    display: flex;
+    justify-content: center;
+}
+.smpInfo{
+    margin-left: 30px;
+}
+.function{
+    margin-left: 30px;
+    background: #ffa63d;
+    color: #fff;
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+}
+.rightBox{
+    background: #fff;
+    margin: 10px;
+    padding: 0px 0px 1px 20px;
+    border-radius: 5px;
+}
+
+.line{
+    text-align: right;
+    margin-right: 30%;
+}
+.title{
+    text-align: center;
+}
+.rightBox input{
+    width: 120px;
+
+}
+.rightBox  button{
+    width: 126px;
+    background: #ffa63d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    /*margin: 5px;*/
+    /*border: 2px solid #fff;*/
+}
+.pager{
+    background: #fff;
+
+}
+.pager ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    margin-bottom: 50px;
+    padding-right: 40px;
+}
+.pager li{
+    list-style: none;
+}
