@@ -8,8 +8,8 @@
 </head>
 <body>
 <header>
-    <div class="backimg"><img src="/public/imgage/background.jpg"></div>
-    <div class="logo"></div>
+    <div class="backimg"><img src="/public/imgage/banner.jpg"></div>
+    <div class="logo"><img src="/public/imgage/header_logo.png" alt="logo"></div>
 </header>
 
 <nav>
@@ -39,7 +39,7 @@
     <div class="mainRight">
         {% if userInfo._id %}
         <div class="rightBox" id="userInfo">
-            <div class="title"><h3>用户信息</h3></div>
+            <div class="title"><h3 class="title__text">用户信息</h3></div>
             <p><span class="colDark username">{{userInfo.username}}</span></p>
             {% if userInfo.isAdmin %}
             <p><span class="colDanger info">你好，你是管理员  <a href="/admin">你可以点击进入管理</a></span></p>
@@ -51,7 +51,7 @@
         </div>
         {% else %}
         <div class="rightBox" id="loginBox"   >
-            <div class="title"><h3>登录</h3></div>
+            <div class="title"><h3 class="title__text">登录</h3></div>
             <div class="line"><span class="colDark">用户名：</span><input name="username" type="text"><em></em></div>
             <div class="line"><span class="colDark">密码：</span><input name="password" type="text"><em></em></div>
             <div class="line"><span class="colDark"><button>登录</button></span></div>
@@ -70,7 +70,7 @@
         </div>
         {% endif %}
         <div class="rightBox">
-            <div class="title"><h3>社区</h3>
+            <div class="title"><h3 class="title__text">社区</h3>
                 <p><a href="" class="colDanger">秒微课堂</a></p>
                 <p><a href="" class="colDanger">喵尾茶馆</a></p>
             </div>

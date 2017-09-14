@@ -2,16 +2,35 @@ body{
     margin: 0;
     padding: 0;
     background: #e9e9e9;
+  
 }
 .backimg img{
     width: 100%;
     height: 200px;
 }
+.logo{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 a{
     text-decoration: none;
 }
 .focus{
-    border-bottom: 5px solid #ffa63d;
+    /* border-bottom: 5px solid #FFA53D; */
+}
+a:hover{
+    color: #ffa63d;
+}
+a:link{
+    color: #505050;
+}
+a{
+    color: #505050;
 }
 .colInfo{
     color: #3fff8e;
@@ -20,6 +39,8 @@ a{
     background: #fff;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 56px;
 }
 .menu a{
     margin: 10px;
@@ -28,15 +49,18 @@ a{
 .clear{
     display: flex;
     justify-content: center;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .mainLeft{
-    width:42%;
+    width:66.666666667%;
     margin-right: 20px;
     min-width: 700px;
 }
 .mainRight{
-    width: 21%;
+    width: 33.33333%;
     min-width: 350px;
 }
 .listBox{
@@ -69,7 +93,7 @@ a{
 .rightBox{
     background: #fff;
     margin: 10px;
-    padding: 0px 0px 1px 20px;
+    padding: 0px 20px 0px 20px;    
     border-radius: 5px;
 }
 
@@ -77,8 +101,20 @@ a{
     text-align: right;
     margin-right: 30%;
 }
-.title{
-    text-align: center;
+.title h3{
+    font-size: 16.8px;
+    font-weight: normal;
+    padding: 15px 0 1px 0;
+    border-bottom: 1px solid #999999;
+}
+.title__text::after{
+    content: ' ';
+    display: block;
+    height: 1px;
+    width: 100px;
+    position: relative;
+    background: #ffa63d;
+    top: 2px;
 }
 .rightBox input{
     width: 120px;
