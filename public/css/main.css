@@ -48,7 +48,7 @@ a{
 
 .clear{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
@@ -72,14 +72,14 @@ a{
 
 .listBox h1{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
 }
 .listBox .colDefault{
     display: flex;
     justify-content: center;
 }
 .smpInfo{
-    margin-left: 30px;
+    /* margin-left: 30px; */
 }
 .function{
     margin-left: 30px;
@@ -89,6 +89,10 @@ a{
     padding: 5px;
     text-align: center;
     border-radius: 5px;
+}
+.function a{
+    color: #ffffff;
+    font-size: 14px;
 }
 .rightBox{
     background: #fff;
@@ -143,4 +147,62 @@ a{
 }
 .pager li{
     list-style: none;
+}
+
+.listBox h1{
+    color: #303030;
+    font-size: 24px;
+    font-weight: normal;
+}
+.post-media{
+    width: 220px;
+    height: 160px;
+}
+.post-media__img{
+    width: 220px;
+    height: 160px;
+}
+
+.post{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.post-date{
+    color: #959595;
+}
+.post-content{
+    display: flex;
+    color: #666666;
+    border-bottom: 1px solid #ebebeb;
+    font-size: 15px;
+}
+.post-footer{
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+.post-meta{
+    line-height: 30px;
+}
+.post-title{
+    display: flex;
+    justify-content: center;
+}
+.post-detail{
+    padding: 20px;
+}
+.message__input{
+    /* width: 500px;
+    height: 20px;
+    margin: 0px; */
+}
+.comment{
+    display: flex;
+    flex-direction: column;
+     width: 650px; 
+}
+.comment__label{
+    margin: 5px;
+    height: 25px;
 }
