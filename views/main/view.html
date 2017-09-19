@@ -10,7 +10,10 @@
         阅读：<span class="colInfo">{{content.views}}</span>
         评论：<span class="colInfo">{{content.comments.length}}</span>
     </p>
-    <div class="smpInfo"><p>{{content.content}}</p></div>
+    <div class="smpInfo"><div id="post-content" class="markdown-body">{{content.content}}</div></div>
+    <!-- <div class="post-content" id="post-content">
+
+    </div> -->
 
     <div class="listBox message">
         <h3 class="textLeft"><strong>评论</strong><span class="em">一共有 <em id="messageCount">0</em>条评论</span></h3>
@@ -30,7 +33,7 @@
             <textarea class="message__input" name="" id="messageContent" cols="30" rows="10" placeholder="说点什么吧！"></textarea> <button id="messageBtn" class="submit">评论</button>
         </p>
         {% else %}
-        <p class="bgDanger" style="line-height: 30px;">你还没有登录，清闲登录</p>
+        <p class="bgDanger" style="line-height: 30px;">你还没有登录，请先登录</p>
         {% endif %}
 
        

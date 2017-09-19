@@ -82,4 +82,17 @@ $(function () {
             }
         });
     })
+
+    var content = $('#post-content').html();
+    // debugger
+     console.log(content);
+       marked.setOptions({
+          highlight: function (code) {
+            return hljs.highlightAuto(code).value;
+          }
+        });
+
+    var convert = marked(content.replace(/&gt;/g,'>'));
+    console.log(convert);
+    $('#post-content').html(convert);
 })

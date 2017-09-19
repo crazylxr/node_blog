@@ -152,7 +152,7 @@ router.get('/content/add', function (req, res) {
 })
 //内容保存
 router.post('/content/add', function (req, res) {
-    // console.log(req.body);
+    console.log(req.body);
     if(req.body.category == ''){
         res.render('admin/error', {
             userInfo: req.userInfo,

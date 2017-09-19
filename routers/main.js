@@ -65,7 +65,7 @@ router.get('/view',function (req, res) {
 
         content.views++;
         content.save();
-
+       
         res.render('main/view', data);
     })
 })

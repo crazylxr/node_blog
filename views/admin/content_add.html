@@ -34,8 +34,30 @@
     <div class="form-group">
         <label for="content">内容：</label>
         <textarea name="content" id="content" class="form-control" rows="5" placeholder="请输入内容"></textarea>
+    </div>
+
+    <div class="form-group" id="displayContent">
 
     </div>
+
+    <script>
+        setInterval(convert,2000);
+        function convert() {
+            var markdown = document.getElementById('content').value;
+    //        debugger
+    console.log(markdown);
+       marked.setOptions({
+          highlight: function (code) {
+            return hljs.highlightAuto(code).value;
+          }
+        });
+            document.getElementById('displayContent').innerHTML =
+                marked(markdown);
+                
+                console.log(marked(markdown));
+        }
+
+</script>
     <!--<div class="form-group">-->
         <!--<label for="exampleInputPassword1">Password</label>-->
         <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
