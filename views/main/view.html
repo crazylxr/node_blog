@@ -3,23 +3,26 @@
 {% block content%}
 
 <div class="listBox post-detail">
-    <h1 class="post-title">{{content.title}}</h1>
-    <p class="colDefault">
-        作者：<span class="colInfo">{{content.user.username}}</span>
-        时间：<span class="colInfo">{{content.addTime|date('Y-m-d H:i:s', -60*8) }}</span>
-        阅读：<span class="colInfo">{{content.views}}</span>
-        评论：<span class="colInfo">{{content.comments.length}}</span>
-    </p>
-    <div class="smpInfo"><div id="post-content" class="markdown-body">{{content.content}}</div></div>
+    <div class="post-detail__head">
+        <h1 class="post-title">{{content.title}}</h1>
+        <p class="colDefault">
+            <i class="fa fa-eye " aria-hidden="true"></i><span class="colInfo">{{content.views}} Views</span>
+            <i class="fa fa-commenting" aria-hidden="true"></i><span class="colInfo">{{content.comments.length}} Comments</span>
+            <i class="fa fa-calendar" aria-hidden="true"></i><span class="colInfo">{{content.addTime|date('Y-m-d H:i:s', -60*8) }}</span>
+        </p>
+    </div>
+   
+    <!-- <div class="smpInfo"></div> -->
+        <div id="post-content" class="markdown-body post-detail__content">{{content.content}}</div>
     <!-- <div class="post-content" id="post-content">
 
     </div> -->
 
     <div class="listBox message">
-        <h3 class="textLeft"><strong>评论</strong><span class="em">一共有 <em id="messageCount">0</em>条评论</span></h3>
+        <h3 class="textLeft message__title"><span class="em">共有<em id="messageCount" style="color: #fda84c;">0</em> 条评论</span></h3>
         
         <div class="messageList">
-
+           
         </div>
        
         {% if userInfo._id %}

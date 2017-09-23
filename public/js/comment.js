@@ -1,4 +1,4 @@
-var prepage = 2;
+var prepage = 5;
 var page = 1;
 var pages = 0;
 var comments = [];
@@ -37,7 +37,6 @@ function renderComment() {
     var pages = Math.max(Math.ceil(comments.length / prepage), 1);
     var start = Math.max(0,(page-1) * prepage);
     var end = Math.min(start + prepage,comments.length );
-
     var $lis = $('.pager li');
     $lis.eq(1).html(page + '/' + pages)
 
@@ -54,17 +53,21 @@ function renderComment() {
     }else {
         $lis.eq(2).html("<a href=''>下一页</a>");
     }
-
     if (comments.length == 0){
         $('.messageList').html('<div class="messageBox"><p>还没有评论</p></div>');
     }else {
         var html = '';
-
-        for(var i = end  ; i > start; i--){
-            html += `<div class="messageBox">
-                     <p class="name clear"><span class="fl">${comments[i].username}</span><span class="fr">${formateDate(comments[i].postTime)}</span></p>
-                      <p>${comments[i].content}</p>
-                  </div>`;
+        
+        for(var i = end - 1  ; i >= start; i--){
+            html += ` <div class="messageBox">
+                        <div class="messageBox__avator"><img src="/public/imgage/avatar.png" alt="atatar"></div>
+                        <div class="messageBox__text">
+                            <div class="messageBox__meta">
+                                <p class="name clear"><span class="fl">${comments[i].username}</span><span class="fr">${formateDate(comments[i].postTime)}</span></p>
+                            </div>
+                            <div class="messageBox__content"><p>${comments[i].content}</p></div>
+                        </div>
+                    </div>`;
         }
 
         $('.messageList').html(html);
