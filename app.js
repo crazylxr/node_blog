@@ -63,6 +63,7 @@ app.use(function (req, res, next) {
  */
 
 app.use('/admin', require('./routers/admin'));
+app.use('/login', require('./routers/login'));
 app.use('/api', require('./routers/api'));
 app.use('/', require('./routers/main'));
 

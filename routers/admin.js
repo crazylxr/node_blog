@@ -14,6 +14,7 @@ router.use(function (req, res, next) {
     next();
 });
 
+
 /*
 * 修改内容
 * */
@@ -225,6 +226,7 @@ router.get('/category/add', function (req, res) {
     });
 })
 
+//后台首页
 router.get('/', function (req, res, next) {
     res.render('admin/index', {
         userInfo: req.userInfo
@@ -412,4 +414,5 @@ router.get('/category/delete', function (req, res) {
         })
     });
 })
+
 module.exports = router

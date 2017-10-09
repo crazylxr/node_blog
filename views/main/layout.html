@@ -1,45 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>桃园</title>
-    <link rel="stylesheet" href="/public/css/main.css"/>
+    <link rel="stylesheet" href="/public/css/main.css" />
     <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
-     <link rel="stylesheet" type="text/css" href="/public/css/github-markdown.css">
-     <link rel="stylesheet" href="/public/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/github-markdown.css">
+    <link rel="stylesheet" href="/public/css/font-awesome.css">
 </head>
+
 <body>
-<header>
-    <div class="backimg"><img src="/public/imgage/banner.jpg"></div>
-    <div class="logo"><img src="/public/imgage/header_logo.png" alt="logo"></div>
-</header>
+    <header>
+        <div class="backimg"><img src="/public/imgage/banner.jpg"></div>
+        <div class="logo"><img src="/public/imgage/header_logo.png" alt="logo"></div>
+    </header>
 
-<nav>
-    <div class="menu">
-        {% if category %}
-        <a href="/" >首页</a>
-        {% else %}
-        <a href="/" class="focus">首页</a>
-        {% endif%}
+    <nav>
+        <div class="menu">
+            {% if category %}
+            <a href="/">首页</a> {% else %}
+            <a href="/" class="focus">首页</a> {% endif%} {% for cate in categries%} {% if category == cate.id %}
+            <a href="/?category={{cate.id}}" class="focus">{{cate.name}}</a> {% else %}
+            <a href="/?category={{cate.id}}">{{cate.name}}</a> {% endif%} {% endfor %}
+        </div>
+    </nav>
 
-        {% for cate in categries%}
-        {% if category == cate.id %}
-        <a href="/?category={{cate.id}}" class="focus">{{cate.name}}</a>
-        {% else %}
-        <a href="/?category={{cate.id}}">{{cate.name}}</a>
-        {% endif%}
+    <main class="clear">
+        <div class="mainLeft">
+            {% block content %}{% endblock %}
+        </div>
 
-        {% endfor  %}
-    </div>
-</nav>
-
-<main class="clear">
-    <div class="mainLeft">
-      {% block content %}{% endblock %}
-    </div>
-
-    <div class="mainRight">
-        {% if userInfo._id %}
+        <div class="mainRight">
+            <!-- {% if userInfo._id %}
         <div class="rightBox" id="userInfo">
             <div class="title"><h3 class="title__text">用户信息</h3></div>
             <p><span class="colDark username">{{userInfo.username}}</span></p>
@@ -70,28 +63,48 @@
             <p class="textRight">已有账号？ <a href="javascript:;" class="colMint">马上登录</a></p>
             <p class="colWarning textCenter"></p>
         </div>
-        {% endif %}
-        <div class="rightBox">
-            <div class="title"><h3 class="title__text">标签云</h3>
-                <p><a href="" class="colDanger">java</a></p>
-                <p><a href="" class="colDanger">javascript</a></p>
+        {% endif %} -->
+            <div class="rightBox archive-container">
+                <div class="title">
+                    <h3 class="title__text">归档</h3>
+                    <ul class="archive-list">
+                        <li class="archive-list__item"><i class="fa fa-calendar-o" aria-hidden="true"></i><a href="" class="archive-list__item-time">2017年五月</a></li>
+                        <li class="archive-list__item"><i class="fa fa-calendar-o" aria-hidden="true"></i><a href="" class="archive-list__item-time">2017年四月</a></li>
+                        <li class="archive-list__item"><i class="fa fa-calendar-o" aria-hidden="true"></i><a href="" class="archive-list__item-time">2017年三月</a></li>
+                        <li class="archive-list__item"><i class="fa fa-calendar-o" aria-hidden="true"></i><a href="" class="archive-list__item-time">2017年二月</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rightBox label-cloud">
+                <div class="title">
+                    <h3 class="title__text">标签云</h3>
+                    <a href="" class="colDanger label-cloud__item">Java</a>
+                    <a href="" class="colDanger label-cloud__item">Javascript</a>
+                    <a href="" class="colDanger label-cloud__item">C</a>
+                    <a href="" class="colDanger label-cloud__item">Webstorm</a>
+                    <a href="" class="colDanger label-cloud__item">Phtyon</a>
+                </div>
+            </div>
+
+            <div class="rightBox">
+                <div class="title">
+                    <h3 class="title__text">社区</h3>
+                    <p><a href="http://www.alloyteam.com/" class="colDanger">腾讯AlloyTeam</a></p>
+                    <p><a href="https://www.75team.com/" class="colDanger">360奇舞团</a></p>
+                </div>
             </div>
         </div>
+    </main>
 
-        <div class="rightBox">
-            <div class="title"><h3 class="title__text">社区</h3>
-                <p><a href="" class="colDanger">秒微课堂</a></p>
-                <p><a href="" class="colDanger">喵尾茶馆</a></p>
-            </div>
-        </div>
-    </div>
-</main>
-
-<script src="/public/js/jquery-3.2.1.js"></script>
-<script src="/public/js/marked.js"></script>
-<script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script src="/public/js/index.js"></script>
+    <script src="/public/js/jquery-3.2.1.js"></script>
+    <script src="/public/js/marked.js"></script>
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <script src="/public/js/index.js"></script>
 
 </body>
+
 </html>

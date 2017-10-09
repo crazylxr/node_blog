@@ -36,8 +36,8 @@
 {% endfor  %}
 
 <div class="pager">
-    <ul class="clear">
-        <li class="previous">
+    <ul class="clear pager-list">
+        <li class="pager__previous">
             {% if page <= 1 %}
             <span>没有上一页</span>
             {% else %}
@@ -51,7 +51,7 @@
         </li>
         {% endif %}
 
-        <li class="next">
+        <li class="pager__next">
             {% if page >= pages %}
             <span>没有下一页</span>
             {% else %}

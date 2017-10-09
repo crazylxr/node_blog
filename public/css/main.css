@@ -55,6 +55,18 @@ a{
     margin-left: auto;
     margin-right: auto;
 }
+.pager-list{
+    width: 100%;
+    padding-left: 0px;
+}
+.pager__previous{
+    padding-left: 20px;
+    color: #e37220;
+}
+.pager__next{
+    padding-right: 20px;
+    color: #e37220;
+}
 
 .mainLeft{
     width:66.666666667%;
@@ -71,7 +83,6 @@ a{
     background: #fff;
     margin-bottom: 20px;
     padding-bottom: 20px;
-    border-radius: 5px;
 }
 
 .listBox h1{
@@ -93,7 +104,6 @@ a{
     width: 100px;
     padding: 5px;
     text-align: center;
-    border-radius: 5px;
 }
 .function a{
     color: #ffffff;
@@ -103,7 +113,6 @@ a{
     background: #fff;
     margin: 10px;
     padding: 0px 20px 10px 20px;    
-    border-radius: 5px;
 }
 
 .line{
@@ -262,4 +271,30 @@ a{
     margin: 5px;
     font-size: 14px;
     color: #6E6767;
+}
+
+.label-cloud__item{
+    display: inline-block;
+    border: 1px solid #ebebeb;
+    padding: 2px 7px;
+    font-size: 0.9em;
+    color: #959595;
+    margin-bottom: 7px;
+}
+.label-cloud__item:hover{
+    color: #ffffff;
+    background: #e37220; 
+    font-size: 0.9em;
+}
+
+.archive-list{
+    padding: 0;
+}
+.archive-list__item{
+    list-style: none;
+    letter-spacing: 1px;
+}
+.archive-list__item-time{
+    margin-left: 8px;
+    font-size: 0.9em;
 }
