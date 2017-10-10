@@ -168,6 +168,8 @@ router.post('/content/add', function (req, res) {
         })
     }
 
+    console.log(req.body.content);
+
     //保存数据到数据库
     new Content({
         category: req.body.category,

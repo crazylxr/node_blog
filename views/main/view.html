@@ -11,7 +11,7 @@
     </div>
 
     <!-- <div class="smpInfo"></div> -->
-    <div id="post-content" class="markdown-body post-detail__content">{{content.content}}</div>
+    <div id="post-content" class="post-detail__content">{{content.content|replace('<', '<', 'g') }}</div>
     <!-- <div class="post-content" id="post-content">
 
     </div> -->

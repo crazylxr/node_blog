@@ -12,6 +12,9 @@ var User = require('./models/User');
 //创建app应用 => Node JS http.createServer();
 var app = express();
 
+//设置自动转义为false
+swig.setDefaults({ autoescape: false });
+
 //设置静态文件托管
 app.use('/public', express.static(__dirname + '/public'));
 
