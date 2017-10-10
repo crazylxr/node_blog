@@ -35,20 +35,20 @@
             </ul>
         </div>
 
-        {% if userInfo._id %}
+        <!-- {% if true %} -->
         <!-- <p class="textLeft">zmouse</p> -->
         <h3 class="comment__title">发表评论</h3>
         <p class="textLeft clear comment">
             <input type="hidden" id="contentId" value="{{content.id}}">
-            <input class="comment__label" type="text" name="nickname" value="" placeholder="姓名(必填)">
-            <input class="comment__label" type="email" name="email" value="" placeholder="邮箱(必填)">
-            <input class="comment__label" type="text" name="site" value="" placeholder="网站(选填)">
+            <input id="nickname" class="comment__label" type="text" name="nickname" value="" placeholder="姓名(必填)">
+            <input id="email" class="comment__label" type="email" name="email" value="" placeholder="邮箱(必填)">
+            <input id="site" class="comment__label" type="text" name="site" value="" placeholder="网站(选填)">
             <textarea class="message__input" name="" id="messageContent" cols="30" rows="10" placeholder="说点什么吧！"></textarea>
             <button id="messageBtn" class="submit">评论</button>
         </p>
-        {% else %}
-        <p class="bgDanger" style="line-height: 30px;">你还没有登录，请先登录</p>
-        {% endif %}
+        <!-- {% else %} -->
+        <!-- <p class="bgDanger" style="line-height: 30px;">你还没有登录，请先登录</p> -->
+        <!-- {% endif %} -->
 
 
 

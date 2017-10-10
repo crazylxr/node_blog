@@ -16,12 +16,20 @@ $.ajax({
 })
 
 $('#messageBtn').on('click', function () {
+    var $nickname = $('#nickname');
+    var $email = $('#email');
+    var $site = $('#site');
+    var $messageContent = $('#messageContent');
+
     $.ajax({
         type: 'post',
         url: '/api/comment/post',
         data: {
             contentid:$('#contentId').val(),
-            content: $('#messageContent').val(),
+            content: $messageContent.val(),
+            nickname: $nickname.val(),
+            email: $email.val(),
+            site: $site.val()
         },
         success: function (responseData) {
             $('#messageContent').val('');
@@ -63,7 +71,7 @@ function renderComment() {
                         <div class="messageBox__avator"><img src="/public/imgage/avatar.png" alt="atatar"></div>
                         <div class="messageBox__text">
                             <div class="messageBox__meta">
-                                <p class="name clear"><span class="fl">${comments[i].username}</span><span class="fr">${formateDate(comments[i].postTime)}</span></p>
+                                <p class="name clear"><span class="fl" style='margin-right:5px;'>${comments[i].nickname}</span><span class="fr">${formateDate(comments[i].postTime)}</span></p>
                             </div>
                             <div class="messageBox__content"><p>${comments[i].content}</p></div>
                         </div>

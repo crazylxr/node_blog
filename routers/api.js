@@ -125,10 +125,14 @@ router.post('/user/register', function (req, res, next) {
 router.post('/comment/post', function (req, res) {
 
     var contentId = req.body.contentid || '';
+    console.log(req.body);
     var postData = {
         username: req.userInfo.username,
         postTime: new Date(),
-        content: req.body.content
+        content: req.body.content,
+        nickname: req.body.nickname,
+        email: req.body.email,
+        site: req.body.site
     }
 
     //查询当前内容信息
