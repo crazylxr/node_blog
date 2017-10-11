@@ -1,5 +1,34 @@
 $(function () {
 
+    var $labels = $('#labels');
+    var $tags = $('#tags');
+    
+    //选择标签
+    $labels.on("click", function (e) {
+        var tagsString = $tags.val();
+        
+        $tags.val(getNewTags(tagsString).join(','));
+
+        function getNewTags(tagsString){
+            var tags = [];
+            var tagIndex = 0;
+
+            if(tagsString){
+                tags = $tags.val().split(',');
+            }
+
+            tagIndex = tags.indexOf(e.target.text);
+
+            if (tagIndex === -1){
+                tags.push(e.target.text); 
+            }else{ 
+                tags.splice(tagIndex, 1);
+            }
+
+            return tags;
+        }
+    });
+
     // var $loginBox = $('#loginBox');
     // var $registerBox = $('#registerBox');
     // var $userInfo = $('#userInfo');

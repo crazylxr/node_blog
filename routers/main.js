@@ -66,17 +66,7 @@ router.get('/view',function (req, res) {
 
         content.views++;
         content.save();
-
-        //转为markdown
-        // marked.setOptions({
-        //     highlight: function (code) {
-        //         return require('highlight.js').highlightAuto(code).value;
-        //     }
-        // });
-
-        data.content.content = marked(data.content.content);
       
-        // console.log(data.content.content);
         res.render('main/view', data);
     })
 })

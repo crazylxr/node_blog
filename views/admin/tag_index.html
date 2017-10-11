@@ -1,0 +1,34 @@
+
+{% extends 'layout.html' %}
+
+{% block main %}
+<ol class="breadcrumb">
+    <li><a href="/admin">管理首页</a></li>
+    <li><a href="/admin/tag">分类列表</a></li>
+    <!--<li class="active">Data</li>-->
+</ol>
+
+<h3>标签列表</h3>
+<table class="table table-hover table-striped">
+    <tr>
+        <td>ID</td>
+        <td>标签名称</td>
+        <td>操作</td>
+    </tr>
+
+    {% for tag in tags %}
+    <tr>
+        <td>{{tag._id.toString()}}</td>
+        <td>{{tag.name}}</td>
+        <td>
+            <a href="/admin/tag/edit?id={{tag._id.toString()}}">修改</a>
+            <a href="/admin/tag/delete?id={{tag._id.toString()}}">删除</a>
+        </td>
+    </tr>
+    {% endfor%}
+</table>
+
+{% include 'page.html'%}
+
+{% endblock%}
+

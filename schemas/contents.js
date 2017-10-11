@@ -7,6 +7,13 @@ module.exports = new mongoose.Schema({
          type: mongoose.Schema.Types.ObjectId,
         ref: 'Category'
     },
+
+    //关联字段，标签id
+    tag: {
+        type: Array,
+        ref: []
+    },
+
     addTime: {
         type: Date,
         default: new Date()
