@@ -57,7 +57,7 @@ node app.js
 
 ![image.png](http://upload-images.jianshu.io/upload_images/2974893-4aec2238f8d66292.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![image.png](http://upload-images.jianshu.io/upload_images/2974893-6fc8df794271d72a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![文章详情页.png](http://upload-images.jianshu.io/upload_images/2974893-6fc8df794271d72a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## todolist
 * 评论管理
