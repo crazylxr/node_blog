@@ -90,11 +90,10 @@ $('.pager').delegate('a', 'click', function (e) {
     }else {
         page++;
     }
-
     renderComment();
 
 })
-
+ 
 function formateDate(d) {
     var date1 = new Date(d);
     return date1.getFullYear()+'-' + (date1.getMonth()+1) + '-'+date1.getDate()+" "+date1.getHours()+":"+date1.getMinutes()+":"+date1.getSeconds();

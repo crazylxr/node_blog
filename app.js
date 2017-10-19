@@ -47,8 +47,6 @@ app.use(function (req, res, next) {
                 req.userInfo.isAdmin = Boolean(userInfo.isAdmin);
                 next();
             });
-
-
         }catch (e){
             console.log(e);
             next();
@@ -56,7 +54,6 @@ app.use(function (req, res, next) {
     }else {
         next();
     }
-    // console.log(req.cookies.get('userInfo'));
 
 
 });
@@ -70,9 +67,13 @@ app.use('/login', require('./routers/login'));
 app.use('/api', require('./routers/api'));
 app.use('/', require('./routers/main'));
 
+//404页面
+app.get('*', function(req, res){
+    res.render('main/404');
+})
 
 //连接数据库
-moogoose.connect('mongodb://localhost:27017/blog', function (err) {
+moogoose.connect('mongodb://lxrsuper.com:27017/blog', function (err) {
     if(err){
         console.log('数据库连接失败');
     }else {

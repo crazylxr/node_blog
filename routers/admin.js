@@ -4,6 +4,7 @@ var router = express.Router();
 var User = require('../models/User');
 var Category = require('../models/Category');
 var Content = require('../models/Contents');
+var Comment = require('../models/Comment');
 var Tag = require('../models/Tag');
 
 router.use(function (req, res, next) {
@@ -582,6 +583,63 @@ router.get('/category/delete', function (req, res) {
             userInfo: req.userInfo,
             message: "删除成功",
             url: '/admin/category'
+        })
+    });
+})
+
+
+//评论首页
+router.get('/comment', function (req, res) {
+    /*
+   * limit()：闲置获取的数据条款
+   *
+   * skip()：忽略数据的条数
+   * */
+
+    var page = Number(req.query.page || 1);
+    var limit = 10;
+
+    var pages = 0;
+
+    Comment.count().then(function (count) {
+        //计算总页数
+        pages = Math.ceil(count / limit);
+        //取值不能超过pages
+        page = Math.min(page, pages);
+        //取值不能小于1
+        page = Math.max(page, 1);
+
+        var skip = (page - 1) * limit;
+
+        Comment.find().limit(limit).skip(skip).then(function (comments) {
+            console.log(comments);
+            res.render('admin/comment_index', {
+                userInfo: req.userInfo,
+                comments: comments,
+                page: page,
+                count: count,
+                pages: pages,
+                limit: limit
+            });
+        });
+
+    });
+
+})
+
+//评论删除
+router.get('/comment/delete', function (req, res) {
+    //获取要删除的分类的id
+    var id = req.query.id || '';
+
+    Content.update({})
+    Comment.remove({
+        _id: id
+    }).then(function () {
+        res.render('admin/success', {
+            userInfo: req.userInfo,
+            message: "删除成功",
+            url: '/admin/comment'
         })
     });
 })

@@ -3,6 +3,7 @@ var router = express.Router();
 
 var User = require('../models/User');
 var Content = require('../models/Contents');
+var Comment = require('../models/Comment');
 
 //统一返回格式
 var responseData;
@@ -132,30 +133,52 @@ router.post('/comment/post', function (req, res) {
         content: req.body.content,
         nickname: req.body.nickname,
         email: req.body.email,
-        site: req.body.site
+        site: req.body.site,
+        article_id: req.body.article_id
     }
 
-    //查询当前内容信息
-    Content.findOne({
-        _id: contentId
-    }).then(function (content) {
-        content.comments.push(postData);
-        return content.save();
-    }).then(function (newContent) {
-        responseData.message = "评论成功";
-        responseData.data = newContent;
-        res.json(responseData);
-    })
+    new Comment(postData).save().then(comment => {
+        // console.log(data._id);
+        const comment_id = comment._id;
+        Content.findOne({
+            _id: contentId 
+        }).then(content =>{
+            content.comments.push(comment_id);
+            return content.save();
+        }).then(function (newContent) {
+            Comment.find({_id: {"$in": newContent['comments']}}).then(comments => {
+                responseData.message = "评论成功";
+                responseData.data = {comments: comments};
+                res.json(responseData);
+            }); 
+        })
+    });
+    // //查询当前内容信息
+    // Content.findOne({
+    //     _id: contentId
+    // }).then(function (content) {
+    //     content.comments.push(postData);
+    //     return content.save();
+    // }).then(function (newContent) {
+    //     responseData.message = "评论成功";
+    //     responseData.data = newContent;
+    //     res.json(responseData);
+    // })
 })
 //获取文章评论
 router.get('/comment', function (req, res) {
 
     var contentId = req.query.contentid || '';
+    
+    // Comment.find() 
     Content.findOne({
         _id: contentId
     }).then(function (content) {
-        responseData.data = content.comments;
-        res.json(responseData);
+        Comment.find({_id: {"$in": content['comments']}}).then(comments => {
+            responseData.data = comments;
+            res.json(responseData);
+        });
+       
     }).catch(function (err) {
         console.log(err)
     })
